@@ -1,0 +1,15 @@
+<div class="row mt-4">
+    <div class="col-sm-4 mb-4" *ngFor="let event of events | eventFilter: 'event'">
+        <div class="card">
+            <div class="card-header">
+                {{event.type}}
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">{{event.title}}</h5>
+                <p class="card-text">{{event.description}}</p>
+                <a href="javascript:void(0)" class="btn btn-primary">Go somewhere</a>
+                <button class="btn btn-danger" (click)="delete(event)">Delete</button>
+            </div>
+        </div>
+    </div>
+</div>

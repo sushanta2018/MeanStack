@@ -1,0 +1,37 @@
+<div class="row mt-5">
+    <div class="col-sm-12">
+        <h3 class="mb-4">New Event</h3>
+        <form [formGroup]="eventform" (ngSubmit)="onSubmit(eventform.value)">
+            <div class="form-group">
+                <label>Title</label>
+                <input type="text" class="form-control" formControlName="title" required>
+                <div *ngIf="eventform.controls['title'].touched && !eventform.controls['title'].valid">
+                    <span *ngIf="eventform.controls['title'].hasError('required') " class="error">  
+                        Field is required
+                    </span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Types</label>
+                <select class="form-control" name="type" formControlName="type" [(ngModel)]="default" required>
+                    <option  *ngFor="let optionEvent of typeEvents" [value]="optionEvent.value">{{optionEvent.type}}</option>
+                </select>
+                <div *ngIf="eventform.controls['type'].touched && !eventform.controls['type'].valid">
+                    <span *ngIf="eventform.controls['type'].hasError('required') " class="error">  
+                        Field is required
+                    </span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Description</label>
+                <textarea class="form-control" formControlName="description" required></textarea>
+                <div *ngIf="eventform.controls['description'].touched && !eventform.controls['description'].valid">
+                    <span *ngIf="eventform.controls['description'].hasError('required') " class="error">  
+                        Field is required
+                    </span>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-success" [disabled]='!eventform.valid'>Submit</button>
+        </form>
+    </div>
+</div>

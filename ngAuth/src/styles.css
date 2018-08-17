@@ -1,0 +1,19 @@
+/* You can add global styles to this file, and also import other style files */
+
+.card-header {
+    text-transform: capitalize;
+}
+
+.modal-footer {
+    margin: 0 -1rem -1rem;
+}
+
+textarea {
+    height: 100px;
+    resize: none;
+}
+
+select,
+select option {
+    text-transform: capitalize;
+}
